@@ -3,15 +3,16 @@ pipeline {
     DOCKER = credentials('dockerhub')
     REGISTRY = "madajaju"
   }
+  agent {
+    label 'dev'
+  }
   stages {
     stage ('Build') {
       agent {
         label 'dev'
       }
-      stage('inventory') {
-        steps {
-          sh 'cd services/inventory && docker build . -t madajaju/devops-inventory'
-        }
+      steps {
+        sh 'cd services/inventory && docker build . -t madajaju/devops-inventory'
       }
     }
     stage ('BuildDocs') {
