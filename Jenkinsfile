@@ -23,17 +23,17 @@ pipeline {
         sh 'echo "MADE IT" '
       }
     }
-    stage ('Test") {
+    stage ('Test') {
       agent {
         label 'test'
       }
     }
-    stage ('Publish") {
+    stage ('Publish') {
       agent {
         label 'dev'
       }
     }
-    stage ('Deploy") {
+    stage ('Deploy') {
       agent {
         label 'prod'
       }
