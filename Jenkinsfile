@@ -21,7 +21,6 @@ pipeline {
       }
       steps {
         sh 'ls -latr'
-        sh 'echo "MADE IT" '
       }
     }
     stage ('Test') {
@@ -33,10 +32,16 @@ pipeline {
       agent {
         label 'dev'
       }
+      steps {
+        sh 'ls -latr'
+      }
     }
     stage ('Deploy') {
       agent {
         label 'prod'
+      }
+      steps {
+        sh 'ls -latr'
       }
     }
   }
