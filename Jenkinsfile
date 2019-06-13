@@ -11,7 +11,7 @@ pipeline {
       agent {
         label 'dev'
       }
-      stages {
+      parallel {
         stage ('Inventory') {
 	  steps {
 	    sh 'cd services/inventory && docker build . -t madajaju/devops-inventory'
