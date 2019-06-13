@@ -27,6 +27,9 @@ pipeline {
       agent {
         label 'test'
       }
+      steps {
+        sh 'ls -latr'
+      }
     }
     stage ('Publish') {
       agent {
