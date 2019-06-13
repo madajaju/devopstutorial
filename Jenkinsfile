@@ -8,16 +8,19 @@ pipeline {
   }
   stages {
     stage ('Build') {
-      agent {
-        label 'dev'
-      }
       parallel {
         stage ('Inventory') {
+          agent {
+            label 'dev'
+          }
 	  steps {
 	    sh 'cd services/inventory && docker build . -t madajaju/devops-inventory'
 	  }
         }
         stage ('Order') {
+	  agent {
+	    label 'dev'
+	  }
 	  steps {
 	    sh 'cd services/order && docker build . -t madajaju/devops-order'
 	  }
