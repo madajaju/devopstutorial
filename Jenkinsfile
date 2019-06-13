@@ -11,9 +11,17 @@ pipeline {
       agent {
         label 'dev'
       }
-      steps {
-        sh 'cd services/inventory && docker build . -t madajaju/devops-inventory'
-      }
+      stages {
+        stage ('Inventory') {
+	  steps {
+	    sh 'cd services/inventory && docker build . -t madajaju/devops-inventory'
+	  }
+        }
+        stage ('Order') {
+	  steps {
+	    sh 'cd services/order && docker build . -t madajaju/devops-order'
+	  }
+        }
     }
     stage ('BuildDocs') {
       agent {
