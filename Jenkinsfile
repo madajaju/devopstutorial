@@ -22,6 +22,7 @@ pipeline {
 	    sh 'cd services/order && docker build . -t madajaju/devops-order'
 	  }
         }
+      }
     }
     stage ('BuildDocs') {
       agent {
