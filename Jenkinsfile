@@ -8,7 +8,7 @@ pipeline {
       agent {
         label 'dev'
       }
-      stage('inventory") {
+      stage('inventory') {
         steps {
           sh 'cd services/inventory && docker build . -t madajaju/devops-inventory'
         }
